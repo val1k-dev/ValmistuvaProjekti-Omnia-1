@@ -1,0 +1,23 @@
+{
+  "name": "valmistuvaprojekti-omnia-1",
+  "version": "1.0.0",
+  "description": "val1k and kira projekti",
+  "homepage": "https://github.com/val1k-dev/ValmistuvaProjekti-Omnia-1#readme",
+  "bugs": {
+    "url": "https://github.com/val1k-dev/ValmistuvaProjekti-Omnia-1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/val1k-dev/ValmistuvaProjekti-Omnia-1.git"
+  },
+  "license": "ISC",
+  "author": "val1k-dev,makarona1012-svg",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}
