@@ -3,130 +3,225 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Tasks - Task Manager</title>
   </head>
   <body>
     <header>
       <div class="search">
-        <img src="" alt="search_icon" />
+        <img src="./assets/img/search.svg" alt="search_icon" />
         <input type="text" placeholder="Search tasks" />
       </div>
-      <div class="notification">
-        <img src="" alt="notify_icon" />
-      </div>
+
       <div class="profile">
-        <img src="" alt="avatar_icon" />
-        <h1>Kira Biloborodova</h1>
-        <p>Team leader</p>
+        <img
+          src="./assets/img/notification.svg"
+          class="notification"
+          alt="notify_icon"
+        />
+        <img src="./assets/img/avatar.svg" alt="avatar_icon" />
+        <div class="info">
+          <h1>Kira Biloborodova</h1>
+          <p>Team leader</p>
+        </div>
       </div>
     </header>
 
-    <nav>
-      <img src="" alt="logo_icon" />
-      <ul>
-        <li><img src="" alt="icon" />Dashboard</li>
-        <li><img src="" alt="icon" />Tasks</li>
-        <li><img src="" alt="icon" />Team</li>
-      </ul>
-    </nav>
+    <div class="sidebar">
+      <img src="./assets/img/logo.png" alt="logo_icon" />
+
+      <nav>
+        <a href="index.html"
+          ><img src="./assets/img/dashboard.svg" alt="icon" />Dashboard</a
+        >
+        <a href="tasks.html"
+          ><img src="./assets/img/tasks.svg" alt="icon" />Tasks</a
+        >
+        <a href="team.html"
+          ><img src="./assets/img/team.svg" alt="icon" />Team</a
+        >
+      </nav>
+
+      <footer>
+        <p>TaskManager<br />Bohdan and Kira</p>
+      </footer>
+    </div>
 
     <main>
-      <h1>Tasks</h1>
-      <p>Manage tasks</p>
-      <button popovertarget="newtask">New Task</button>
+      <div class="heading">
+        <div>
+          <h1>Tasks</h1>
+          <p>Manage tasks</p>
+        </div>
+        <div>
+          <button popovertarget="newtask">New Task</button>
+          <button popovertarget="edittasks">Edit Tasks</button>
+        </div>
+      </div>
 
       <div id="newtask" popover>
         <form action="" method="get">
-            <div class="form-label">
-                <label for="task_name">Enter task name: </label>
-                <input type="text" name="task_name" id="task_name" required min="5"">
-            </div>
-            <div class="form-label">
-                <label for="task_person">Select desired person for the task: </label>
-                <select name="persons" id="task_person" required>
-                    <option value="">Select a person</option>
-                    <option value="kira">Kira Biloborodova</option>
-                    <option value="bohdan">Bohdan Voloshyn</option>
-                </select>
-            </div>
-            <div class="form-label">
-                <label for="task_priority">Select task priority: </label>
-                <select name="priorities" id="task_priority" required>
-                    <option value="">Select priority</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="Urgent">Urgent</option>
-                </select>
-            </div>
-            <div class="form-label">
-                <label for="task_deadline">Select task deadline: </label>
-                <input type="datetime-local" name="task_deadline" id="task_deadline" required value="2026-11-02T13:01" min="2026-11-02T13:01">
-            </div>
+          <div class="form-label">
+            <label for="task_name">Enter task name: </label>
+            <input
+              type="text"
+              name="task_name"
+              id="task_name"
+              required
+              min="5"
+            />
+          </div>
+          <div class="form-label">
+            <label for="task_person"
+              >Select desired person for the task:
+            </label>
+            <select name="persons" id="task_person" required>
+              <option value="">Select a person</option>
+              <option value="kira">Kira Biloborodova</option>
+              <option value="bohdan">Bohdan Voloshyn</option>
+            </select>
+          </div>
+          <div class="form-label">
+            <label for="task_priority">Select task priority: </label>
+            <select name="priorities" id="task_priority" required>
+              <option value="">Select priority</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+          <div class="form-label">
+            <label for="task_deadline">Select task deadline: </label>
+            <input
+              type="datetime-local"
+              name="task_deadline"
+              id="task_deadline"
+              required
+              value="2026-11-02T13:01"
+              min="2026-11-02T13:01"
+            />
+          </div>
 
-            <div class="form-label">
-                <button type="submit">Add task</button>
-            </div>
+          <div class="form-label">
+            <button type="submit">Add task</button>
+          </div>
         </form>
-    </div>
+      </div>
+
+      <div id="edittasks" popover>
+        <div class="tasks-table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Task Name</th>
+                <th scope="col">Person</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Task manager UI Design</th>
+                <td>
+                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                  Biloborodova
+                </td>
+                <td><span class="medium">Medium</span></td>
+                <td>05.11.2026 11:11</td>
+                <td><span class="done">Done</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Task manager UI Design</th>
+                <td>
+                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                  Biloborodova
+                </td>
+                <td><span class="medium">Medium</span></td>
+                <td>05.11.2026 11:11</td>
+                <td><span class="done">Done</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Task manager UI Design</th>
+                <td>
+                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                  Biloborodova
+                </td>
+                <td><span class="medium">Medium</span></td>
+                <td>05.11.2026 11:11</td>
+                <td><span class="done">Done</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="statistics-group">
         <div class="box">
-          <div class="icon">
-            <img src="" alt="icon" />
-          </div>
           <p>Total Tasks</p>
           <p>8</p>
         </div>
         <div class="box">
-          <div class="icon">
-            <img src="" alt="icon" />
-          </div>
           <p>Completed Tasks</p>
           <p>8</p>
         </div>
         <div class="box">
-          <div class="icon">
-            <img src="" alt="icon" />
-          </div>
           <p>Overdue tasks</p>
           <p>8</p>
         </div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Task Name</th>
-            <th scope="col">Person</th>
-            <th scope="col">Priority</th>
-            <th scope="col">Deadline</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Task manager UI Design</th>
-            <td><img src="" alt="avatar_icon" /> Kira Biloborodova</td>
-            <td><span class="medium">Medium</span></td>
-            <td>05.11.2026 11:11</td>
-            <td><span class="done">Done</span></td>
-          </tr>
-          <tr>
-            <th scope="row">Task manager UI Design</th>
-            <td><img src="" alt="avatar_icon" /> Kira Biloborodova</td>
-            <td><span class="medium">Medium</span></td>
-            <td>05.11.2026 11:11</td>
-            <td><span class="done">Done</span></td>
-          </tr>
-          <tr>
-            <th scope="row">Task manager UI Design</th>
-            <td><img src="" alt="avatar_icon" /> Kira Biloborodova</td>
-            <td><span class="medium">Medium</span></td>
-            <td>05.11.2026 11:11</td>
-            <td><span class="done">Done</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="tasks-table">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Task Name</th>
+              <th scope="col">Person</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Deadline</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Task manager UI Design</th>
+              <td>
+                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                Biloborodova
+              </td>
+              <td><span class="medium">Medium</span></td>
+              <td>05.11.2026 11:11</td>
+              <td><span class="done">Done</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Task manager UI Design</th>
+              <td>
+                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                Biloborodova
+              </td>
+              <td><span class="medium">Medium</span></td>
+              <td>05.11.2026 11:11</td>
+              <td><span class="done">Done</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Task manager UI Design</th>
+              <td>
+                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                Biloborodova
+              </td>
+              <td><span class="medium">Medium</span></td>
+              <td>05.11.2026 11:11</td>
+              <td><span class="done">Done</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
   </body>
 </html>

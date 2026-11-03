@@ -3,117 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Team - Task Manager</title>
   </head>
   <body>
     <header>
       <div class="search">
-        <img src="" alt="search_icon" />
+        <img src="./assets/img/search.svg" alt="search_icon" />
         <input type="text" placeholder="Search tasks" />
       </div>
-      <div class="notification">
-        <img src="" alt="notify_icon" />
-      </div>
+
       <div class="profile">
-        <img src="" alt="avatar_icon" />
-        <h1>Kira Biloborodova</h1>
-        <p>Team leader</p>
+        <img
+          src="./assets/img/notification.svg"
+          class="notification"
+          alt="notify_icon"
+        />
+        <img src="./assets/img/avatar.svg" alt="avatar_icon" />
+        <div class="info">
+          <h1>Kira Biloborodova</h1>
+          <p>Team leader</p>
+        </div>
       </div>
     </header>
 
-    <nav>
-      <img src="" alt="logo_icon" />
-      <ul>
-        <li><img src="" alt="icon" />Dashboard</li>
-        <li><img src="" alt="icon" />Tasks</li>
-        <li><img src="" alt="icon" />Team</li>
-      </ul>
-    </nav>
+    <div class="sidebar">
+      <img src="./assets/img/logo.png" alt="logo_icon" />
+
+      <nav>
+        <a href="index.html"
+          ><img src="./assets/img/dashboard.svg" alt="icon" />Dashboard</a
+        >
+        <a href="tasks.html"
+          ><img src="./assets/img/tasks.svg" alt="icon" />Tasks</a
+        >
+        <a href="team.html"
+          ><img src="./assets/img/team.svg" alt="icon" />Team</a
+        >
+      </nav>
+
+      <footer>
+        <p>TaskManager<br />Bohdan and Kira</p>
+      </footer>
+    </div>
 
     <main>
-      <h1>Team</h1>
-      <p>Manage team members</p>
-      <button popovertarget="newmember">Add member</button>
+      <div class="heading">
+        <div>
+          <h1>Team</h1>
+          <p>Manage team members</p>
+        </div>
+        <div>
+          <button popovertarget="newmember">Add member</button>
+          <button popovertarget="editmembers">Edit members</button>
+        </div>
+      </div>
 
       <div id="newmember" popover>
         <form action="" method="get">
-            <div class="form-label">
-                <label for="member_name">Enter member name: </label>
-                <input type="text" name="member_name" id="member_name" required min="5"">
-            </div>
-            <div class="form-label">
-                <label for="member_role">Select member role: </label>
-                <select name="roles" id="member_role" required>
-                    <option value="">Select a role</option>
-                    <option value="user">User</option>
-                    <option value="manager">Team leader</option>
-                </select>
-            </div>
+          <div class="form-label">
+            <label for="member_name">Enter member name: </label>
+            <input
+              type="text"
+              name="member_name"
+              id="member_name"
+              required
+              min="5"
+            />
+          </div>
+          <div class="form-label">
+            <label for="member_role">Select member role: </label>
+            <select name="roles" id="member_role" required>
+              <option value="">Select a role</option>
+              <option value="user">User</option>
+              <option value="manager">Team leader</option>
+            </select>
+          </div>
 
-            <div class="form-label">
-                <button type="submit">Add member</button>
-            </div>
+          <div class="form-label">
+            <button type="submit">Add member</button>
+          </div>
         </form>
-    </div>
+      </div>
+
+      <div id="editmembers" popover>
+        <div class="members-table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Member Name</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <img src="./assets/img/avatar.svg" alt="avatar_icon" />
+                  Kira Biloborodova
+                </th>
+                <td>Admin</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                  Biloborodova
+                </th>
+                <td>Admin</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                  Biloborodova
+                </th>
+                <td>Admin</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <div class="statistics-group">
         <div class="box">
-          <div class="icon">
-            <img src="" alt="icon" />
-          </div>
           <p>Total Tasks</p>
           <p>8</p>
         </div>
         <div class="box">
-          <div class="icon">
-            <img src="" alt="icon" />
-          </div>
           <p>Completed Tasks</p>
           <p>8</p>
         </div>
         <div class="box">
-          <div class="icon">
-            <img src="" alt="icon" />
-          </div>
           <p>Overdue tasks</p>
           <p>8</p>
         </div>
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Task Name</th>
-            <th scope="col">Person</th>
-            <th scope="col">Priority</th>
-            <th scope="col">Deadline</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Task manager UI Design</th>
-            <td><img src="" alt="avatar_icon" /> Kira Biloborodova</td>
-            <td><span class="medium">Medium</span></td>
-            <td>05.11.2026 11:11</td>
-            <td><span class="done">Done</span></td>
-          </tr>
-          <tr>
-            <th scope="row">Task manager UI Design</th>
-            <td><img src="" alt="avatar_icon" /> Kira Biloborodova</td>
-            <td><span class="medium">Medium</span></td>
-            <td>05.11.2026 11:11</td>
-            <td><span class="done">Done</span></td>
-          </tr>
-          <tr>
-            <th scope="row">Task manager UI Design</th>
-            <td><img src="" alt="avatar_icon" /> Kira Biloborodova</td>
-            <td><span class="medium">Medium</span></td>
-            <td>05.11.2026 11:11</td>
-            <td><span class="done">Done</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="members-table">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Member Name</th>
+              <th scope="col">Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                Biloborodova
+              </th>
+              <td>Admin</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                Biloborodova
+              </th>
+              <td>Admin</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
+                Biloborodova
+              </th>
+              <td>Admin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
   </body>
 </html>
