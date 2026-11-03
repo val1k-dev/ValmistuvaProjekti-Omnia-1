@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light; /* light dark */
+  color-scheme: light dark;
   --bg: light-dark(#f8fafc, #111827);
   --surface: light-dark(#ffffff, #1f2937);
   --text: light-dark(#1e293b, #f1f5f9);
@@ -9,6 +9,18 @@
 
   --radius: 8px;
   --spacing: 12px;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="dark"] .ui-icon {
+    filter: brightness(0) invert(1);
 }
 
 * {
@@ -22,6 +34,28 @@ body {
   background: var(--bg);
   line-height: 1.5;
   user-select: none;
+}
+
+header .theme-toggle {
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  width: 45px;
+  height: 45px;
+}
+
+header .theme-toggle #theme-icon {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+}
+
+header .theme-toggle:hover {
+  background: var(--border);
 }
 
 img {
@@ -74,6 +108,7 @@ header .search {
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 8px;
+  margin-left: 15px;
   background: var(--surface);
 }
 
@@ -104,6 +139,13 @@ header .profile .notification {
   background: var(--surface);
   width: 45px;
   height: 45px;
+}
+
+header .profile .notification img {
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: none;
 }
 
 header .profile {

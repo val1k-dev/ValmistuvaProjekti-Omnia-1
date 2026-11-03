@@ -15,16 +15,21 @@
   <body>
     <header>
       <div class="search">
-        <img src="./assets/img/search.svg" alt="search_icon" />
+        <img src="./assets/img/search.svg" class="ui-icon" alt="search_icon" />
         <input type="text" placeholder="Search tasks" />
       </div>
 
       <div class="profile">
-        <img
-          src="./assets/img/notification.svg"
-          class="notification"
-          alt="notify_icon"
-        />
+        <div class="notification">
+          <img
+            src="./assets/img/notification.svg"
+            class="ui-icon"
+            alt="notify_icon"
+          />
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button">
+          <img id="theme-icon" src="./assets/img/moon.svg" alt="theme icon" />
+        </button>
         <img src="./assets/img/avatar.svg" alt="avatar_icon" />
         <div class="info">
           <h1>Kira Biloborodova</h1>
@@ -38,13 +43,21 @@
 
       <nav>
         <a href="index.html"
-          ><img src="./assets/img/dashboard.svg" alt="icon" />Dashboard</a
+          ><img
+            src="./assets/img/dashboard.svg"
+            class="ui-icon"
+            alt="icon"
+          />Dashboard</a
         >
         <a href="tasks.html"
-          ><img src="./assets/img/tasks.svg" alt="icon" />Tasks</a
+          ><img
+            src="./assets/img/tasks.svg"
+            class="ui-icon"
+            alt="icon"
+          />Tasks</a
         >
         <a href="team.html"
-          ><img src="./assets/img/team.svg" alt="icon" />Team</a
+          ><img src="./assets/img/team.svg" class="ui-icon" alt="icon" />Team</a
         >
       </nav>
 
@@ -161,4 +174,6 @@
       </div>
     </main>
   </body>
+
+  <script src="./assets/js/theme.js"></script>
 </html>
