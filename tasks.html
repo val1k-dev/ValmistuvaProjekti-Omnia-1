@@ -3,28 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Tasks - Task Manager</title>
   </head>
   <body>
     <header>
       <div class="search">
-        <img src="./assets/img/search.svg" alt="search_icon" />
+        <img src="./assets/img/search.svg" class="ui-icon" alt="search_icon" />
         <input type="text" placeholder="Search tasks" />
       </div>
 
       <div class="profile">
-        <img
-          src="./assets/img/notification.svg"
-          class="notification"
-          alt="notify_icon"
-        />
+        <div class="notification">
+          <img
+            src="./assets/img/notification.svg"
+            class="ui-icon"
+            alt="notify_icon"
+          />
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button">
+          <img id="theme-icon" src="./assets/img/moon.svg" alt="theme icon" />
+        </button>
         <img src="./assets/img/avatar.svg" alt="avatar_icon" />
         <div class="info">
           <h1>Kira Biloborodova</h1>
@@ -38,13 +43,21 @@
 
       <nav>
         <a href="index.html"
-          ><img src="./assets/img/dashboard.svg" alt="icon" />Dashboard</a
+          ><img
+            src="./assets/img/dashboard.svg"
+            class="ui-icon"
+            alt="icon"
+          />Dashboard</a
         >
         <a href="tasks.html"
-          ><img src="./assets/img/tasks.svg" alt="icon" />Tasks</a
+          ><img
+            src="./assets/img/tasks.svg"
+            class="ui-icon"
+            alt="icon"
+          />Tasks</a
         >
         <a href="team.html"
-          ><img src="./assets/img/team.svg" alt="icon" />Team</a
+          ><img src="./assets/img/team.svg" class="ui-icon" alt="icon" />Team</a
         >
       </nav>
 
@@ -165,15 +178,15 @@
       <div class="statistics-group">
         <div class="box">
           <p>Total Tasks</p>
-          <p>8</p>
+          <p id="total-Tasks">0</p>
         </div>
         <div class="box">
           <p>Completed Tasks</p>
-          <p>8</p>
+          <p id="completed-Tasks">0</p>
         </div>
         <div class="box">
-          <p>Overdue tasks</p>
-          <p>8</p>
+          <p>Team members</p>
+          <p id="team-members">0</p>
         </div>
       </div>
 
@@ -188,40 +201,17 @@
               <th scope="col">Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tasks-table">
             <tr>
-              <th scope="row">Task manager UI Design</th>
-              <td>
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </td>
-              <td><span class="medium">Medium</span></td>
-              <td>05.11.2026 11:11</td>
-              <td><span class="done">Done</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Task manager UI Design</th>
-              <td>
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </td>
-              <td><span class="medium">Medium</span></td>
-              <td>05.11.2026 11:11</td>
-              <td><span class="done">Done</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Task manager UI Design</th>
-              <td>
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </td>
-              <td><span class="medium">Medium</span></td>
-              <td>05.11.2026 11:11</td>
-              <td><span class="done">Done</span></td>
+              <td colspan="5">No tasks availible</td>
             </tr>
           </tbody>
         </table>
       </div>
     </main>
   </body>
+
+  <script src="./assets/js/theme.js"></script>
+  <script type="module" src="./assets/js/tasks.js"></script>
+  <script type="module" src="./assets/js/members.js"></script>
 </html>

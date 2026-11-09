@@ -36,6 +36,10 @@ body {
   user-select: none;
 }
 
+[popover] {
+    border: 0;
+}
+
 header .theme-toggle {
   display: flex;
   align-items: center;

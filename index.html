@@ -73,7 +73,7 @@
           <p>Statistics, team members and currently availible tasks</p>
         </div>
         <div>
-          <button>Reset Statistics</button>
+          <button id="reset-button">Reset Statistics</button>
           <button>Reset All</button>
         </div>
       </div>
@@ -81,15 +81,15 @@
       <div class="statistics-group">
         <div class="box">
           <p>Total Tasks</p>
-          <p>8</p>
+          <p id="total-Tasks">0</p>
         </div>
         <div class="box">
           <p>Completed Tasks</p>
-          <p>8</p>
+          <p id="completed-Tasks">0</p>
         </div>
         <div class="box">
           <p>Team members</p>
-          <p>8</p>
+          <p id="team-members">0</p>
         </div>
       </div>
 
@@ -104,36 +104,9 @@
               <th scope="col">Status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tasks-table">
             <tr>
-              <th scope="row">Task manager UI Design</th>
-              <td>
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </td>
-              <td><span class="medium">Medium</span></td>
-              <td>05.11.2026 11:11</td>
-              <td><span class="done">Done</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Task manager UI Design</th>
-              <td>
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </td>
-              <td><span class="medium">Medium</span></td>
-              <td>05.11.2026 11:11</td>
-              <td><span class="done">Done</span></td>
-            </tr>
-            <tr>
-              <th scope="row">Task manager UI Design</th>
-              <td>
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </td>
-              <td><span class="medium">Medium</span></td>
-              <td>05.11.2026 11:11</td>
-              <td><span class="done">Done</span></td>
+              <td colspan="5">No tasks availible</td>
             </tr>
           </tbody>
         </table>
@@ -147,27 +120,9 @@
               <th scope="col">Role</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="table-members">
             <tr>
-              <th scope="row">
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </th>
-              <td>Admin</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </th>
-              <td>Admin</td>
-            </tr>
-            <tr>
-              <th scope="row">
-                <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                Biloborodova
-              </th>
-              <td>Admin</td>
+              <td colspan="5">No members availible</td>
             </tr>
           </tbody>
         </table>
@@ -176,4 +131,7 @@
   </body>
 
   <script src="./assets/js/theme.js"></script>
+  <script type="module" src="./assets/js/tasks.js"></script>
+  <script type="module" src="./assets/js/members.js"></script>
+  <script src="./assets/js/api.js"></script>
 </html>
