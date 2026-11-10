@@ -73,9 +73,14 @@
           <p>Statistics, team members and currently availible tasks</p>
         </div>
         <div>
-          <button id="reset-button">Reset Statistics</button>
-          <button>Reset All</button>
+          <button popovertarget="reset">Reset All</button>
         </div>
+      </div>
+
+      <div id="reset" popover>
+        <h1>Are you sure? Action cannot be undone.</h1>
+        <button id="reset_btn">Delete</button>
+        <button id="reset_cancel">Cancel</button>
       </div>
 
       <div class="statistics-group">
@@ -104,7 +109,7 @@
               <th scope="col">Status</th>
             </tr>
           </thead>
-          <tbody id="tasks-table">
+          <tbody id="task-table-main">
             <tr>
               <td colspan="5">No tasks availible</td>
             </tr>
@@ -120,7 +125,7 @@
               <th scope="col">Role</th>
             </tr>
           </thead>
-          <tbody id="table-members">
+          <tbody id="table-members-main">
             <tr>
               <td colspan="5">No members availible</td>
             </tr>
@@ -133,5 +138,5 @@
   <script src="./assets/js/theme.js"></script>
   <script type="module" src="./assets/js/tasks.js"></script>
   <script type="module" src="./assets/js/members.js"></script>
-  <script src="./assets/js/api.js"></script>
+  <script type="module" src="./assets/js/api.js"></script>
 </html>

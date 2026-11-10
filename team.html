@@ -74,64 +74,63 @@
         </div>
         <div>
           <button popovertarget="newmember">Add member</button>
-          <button popovertarget="editmembers">Edit members</button>
         </div>
       </div>
 
-      <div id="newmember" popover>
-        <form action="" method="get">
-          <div class="form-label">
-            <label for="member_name">Enter member name: </label>
-            <input
-              type="text"
-              name="member_name"
-              id="member_name"
-              required
-              min="5"
-            />
-          </div>
-          <div class="form-label">
-            <label for="member_role">Select member role: </label>
-            <select name="roles" id="member_role" required>
-              <option value="">Select a role</option>
-              <option value="user">User</option>
-              <option value="manager">Team leader</option>
-            </select>
-          </div>
-
-          <div class="form-label">
-            <button type="submit">Add member</button>
-          </div>
-        </form>
-      </div>
-
-      <div id="editmembers" popover>
-        <div class="members-table">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Member Name</th>
-                <th scope="col">Role</th>
-              </tr>
-            </thead>
-            <tbody id="members-table">
-              <tr>
-                <td colspan="5">No members availible</td>
-              </tr>
-            </tbody>
-          </table>
+      <form id="newmember" popover>
+        <div class="form-label">
+          <label for="member_name">Enter member name: </label>
+          <input
+            type="text"
+            name="member_name"
+            id="member_name"
+            placeholder="Enter member name"
+            required
+            min="5"
+          />
         </div>
-      </div>
+        <div class="form-label">
+          <label for="member_role">Select member role: </label>
+          <select name="roles" id="member_role" required>
+            <option value="">Select a role</option>
+            <option value="User">User</option>
+            <option value="Team leader">Team leader</option>
+          </select>
+        </div>
+
+        <div class="form-label">
+          <button type="submit">Add member</button>
+          <button id="hidepopover">Cancel</button>
+        </div>
+      </form>
+
+      <form id="editmember" popover>
+        <div class="form-label">
+          <label for="member_name">Enter member name: </label>
+          <input
+            type="text"
+            name="member_name"
+            id="member_name"
+            required
+            min="5"
+          />
+        </div>
+        <div class="form-label">
+          <label for="member_role">Select member role: </label>
+          <select name="roles" id="member_role" required>
+            <option value="">Select a role</option>
+            <option value="User">User</option>
+            <option value="Team leader">Team leader</option>
+          </select>
+        </div>
+
+        <div class="form-label">
+          <button type="submit">Edit member</button>
+          <button id="delete_member">Delete member</button>
+        </div>
+      </form>
 
       <div class="statistics-group">
-        <div class="box">
-          <p>Total Tasks</p>
-          <p id="total-Tasks">0</p>
-        </div>
-        <div class="box">
-          <p>Completed Tasks</p>
-          <p id="completed-Tasks">0</p>
-        </div>
         <div class="box">
           <p>Team members</p>
           <p id="team-members">0</p>
@@ -144,9 +143,10 @@
             <tr>
               <th scope="col">Member Name</th>
               <th scope="col">Role</th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
-          <tbody id="table-members">
+          <tbody id="members-table">
             <tr>
               <td colspan="5">No members availible</td>
             </tr>
@@ -158,5 +158,4 @@
 
   <script src="./assets/js/theme.js"></script>
   <script type="module" src="./assets/js/members.js"></script>
-  <script type="module" src="./assets/js/tasks.js"></script>
 </html>

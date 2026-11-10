@@ -74,106 +74,95 @@
         </div>
         <div>
           <button popovertarget="newtask">New Task</button>
-          <button popovertarget="edittasks">Edit Tasks</button>
         </div>
       </div>
 
-      <div id="newtask" popover>
-        <form action="" method="get">
-          <div class="form-label">
-            <label for="task_name">Enter task name: </label>
-            <input
-              type="text"
-              name="task_name"
-              id="task_name"
-              required
-              min="5"
-            />
-          </div>
-          <div class="form-label">
-            <label for="task_person"
-              >Select desired person for the task:
-            </label>
-            <select name="persons" id="task_person" required>
-              <option value="">Select a person</option>
-              <option value="kira">Kira Biloborodova</option>
-              <option value="bohdan">Bohdan Voloshyn</option>
-            </select>
-          </div>
-          <div class="form-label">
-            <label for="task_priority">Select task priority: </label>
-            <select name="priorities" id="task_priority" required>
-              <option value="">Select priority</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="Urgent">Urgent</option>
-            </select>
-          </div>
-          <div class="form-label">
-            <label for="task_deadline">Select task deadline: </label>
-            <input
-              type="datetime-local"
-              name="task_deadline"
-              id="task_deadline"
-              required
-              value="2026-11-02T13:01"
-              min="2026-11-02T13:01"
-            />
-          </div>
-
-          <div class="form-label">
-            <button type="submit">Add task</button>
-          </div>
-        </form>
-      </div>
-
-      <div id="edittasks" popover>
-        <div class="tasks-table">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">Task Name</th>
-                <th scope="col">Person</th>
-                <th scope="col">Priority</th>
-                <th scope="col">Deadline</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Task manager UI Design</th>
-                <td>
-                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                  Biloborodova
-                </td>
-                <td><span class="medium">Medium</span></td>
-                <td>05.11.2026 11:11</td>
-                <td><span class="done">Done</span></td>
-              </tr>
-              <tr>
-                <th scope="row">Task manager UI Design</th>
-                <td>
-                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                  Biloborodova
-                </td>
-                <td><span class="medium">Medium</span></td>
-                <td>05.11.2026 11:11</td>
-                <td><span class="done">Done</span></td>
-              </tr>
-              <tr>
-                <th scope="row">Task manager UI Design</th>
-                <td>
-                  <img src="./assets/img/avatar.svg" alt="avatar_icon" /> Kira
-                  Biloborodova
-                </td>
-                <td><span class="medium">Medium</span></td>
-                <td>05.11.2026 11:11</td>
-                <td><span class="done">Done</span></td>
-              </tr>
-            </tbody>
-          </table>
+      <form id="newtask" popover>
+        <div class="form-label">
+          <label for="task_name">Enter task name: </label>
+          <input
+            type="text"
+            name="task_name"
+            id="task_name"
+            placeholder="Enter task name"
+            required
+            min="5"
+          />
         </div>
-      </div>
+        <div class="form-label">
+          <label for="task_person">Select desired person for the task: </label>
+          <select name="persons" id="task_person" required></select>
+        </div>
+        <div class="form-label">
+          <label for="task_priority">Select task priority: </label>
+          <select name="priorities" id="task_priority" required>
+            <option value="">Select priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="form-label">
+          <label for="task_deadline">Select task deadline: </label>
+          <input
+            type="date"
+            name="task_deadline"
+            id="task_deadline"
+            required
+            min="2026-11-10"
+          />
+        </div>
+
+        <div class="form-label">
+          <button type="submit">Add task</button>
+          <button id="hidepopover_task">Cancel</button>
+        </div>
+      </form>
+
+      <form id="edittask" popover>
+        <div class="form-label">
+          <label for="task_name">Enter task name: </label>
+          <input
+            type="text"
+            name="task_name"
+            id="task_name"
+            placeholder="Enter task name"
+            required
+            min="5"
+          />
+        </div>
+        <div class="form-label">
+          <label for="task_person">Select desired person for the task: </label>
+          <select name="persons" id="task_person_edit" required></select>
+        </div>
+        <div class="form-label">
+          <label for="task_priority">Select task priority: </label>
+          <select name="priorities" id="task_priority" required>
+            <option value="">Select priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="form-label">
+          <label for="task_deadline">Select task deadline: </label>
+          <input type="date" name="task_deadline" id="task_deadline" required />
+        </div>
+
+        <div class="form-label">
+          <label for="task_status">Select task status: </label>
+          <select name="statuses" id="task_status" required>
+            <option value="Added">Added</option>
+            <option value="In progress">In progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="form-label">
+          <button type="submit">Edit task</button>
+          <button id="delete_task">Delete task</button>
+        </div>
+      </form>
 
       <div class="statistics-group">
         <div class="box">
@@ -183,10 +172,6 @@
         <div class="box">
           <p>Completed Tasks</p>
           <p id="completed-Tasks">0</p>
-        </div>
-        <div class="box">
-          <p>Team members</p>
-          <p id="team-members">0</p>
         </div>
       </div>
 
@@ -199,6 +184,7 @@
               <th scope="col">Priority</th>
               <th scope="col">Deadline</th>
               <th scope="col">Status</th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
           <tbody id="tasks-table">
@@ -213,5 +199,4 @@
 
   <script src="./assets/js/theme.js"></script>
   <script type="module" src="./assets/js/tasks.js"></script>
-  <script type="module" src="./assets/js/members.js"></script>
 </html>
