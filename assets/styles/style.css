@@ -111,6 +111,71 @@ body {
   filter: brightness(1.15);
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 850px;
+  margin-top: 30px;
+}
+
+.content details {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 12px;
+  padding: 0 22px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.content details:hover {
+  border-color: #a5b4fc;
+}
+
+.content details[open] {
+  border-color: #6474e5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.content summary {
+  position: relative;
+  padding: 22px 35px 22px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-color, #1f2937);
+  cursor: pointer;
+  list-style: none;
+}
+
+.content summary::-webkit-details-marker {
+  display: none;
+}
+
+.content summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 23px;
+  font-weight: 400;
+  color: #6474e5;
+  transition: transform 0.2s ease;
+}
+
+.content details[open] summary::after {
+  content: "−";
+}
+
+.content details p {
+  margin: 0;
+  padding: 0 35px 22px 0;
+  color: var(--text-secondary, #6b7280);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
 header .theme-toggle {
   display: flex;
   align-items: center;
@@ -142,6 +207,14 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+input:user-invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
 }
 
 h1,

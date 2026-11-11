@@ -1,5 +1,5 @@
 
-import { getTasks, getTask, getMembers, renderMemberOptions } from "./api.js";
+import { getTasks, getTask, getMembers, renderMemberOptions, API } from "./api.js";
 
 const tableBody = document.querySelector("#tasks-table");
 const tableBodyMain = document.querySelector("#task-table-main")
@@ -122,8 +122,14 @@ function completedTasks(tasks) {
 if (NewTaskPopover != null) {
     NewTaskPopover.addEventListener("beforetoggle", async (event) => {
         if (event.newState === "open") {
-            const members = await getMembers()
-            renderMemberOptions(members, taskPerson);
+            try {
+                const members = await getMembers()
+                renderMemberOptions(members, taskPerson);
+            } catch (error) {
+                const err_msg = document.createElement("div")
+                err_msg.textContent = "Server error. Contact Administration"
+                NewTaskPopover.prepend(err_msg)
+            }
         }
     });
 
@@ -134,19 +140,25 @@ if (formBody != null) {
         event.preventDefault();
 
         const formData = new FormData(formBody);
-        await fetch("http://localhost:7777/tasks", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: formData.get("task_name"),
-                person: formData.get("persons"),
-                priority: formData.get("priorities"),
-                date: formData.get("task_deadline"),
-                status: "Added"
-            })
-        });
+        try {
+            await fetch(`${API}/tasks`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: formData.get("task_name"),
+                    person: formData.get("persons"),
+                    priority: formData.get("priorities"),
+                    date: formData.get("task_deadline"),
+                    status: "Added"
+                })
+            });
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            NewTaskPopover.prepend(err_msg)
+        }
 
     })
 }
@@ -203,19 +215,27 @@ if (tableBody != null) {
         event.preventDefault();
 
         const formData = new FormData(editFormBody);
-        await fetch(`http://localhost:7777/tasks/${editFormBody.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                title: formData.get("task_name"),
-                person: formData.get("persons"),
-                priority: formData.get("priorities"),
-                date: formData.get("task_deadline"),
-                status: formData.get("statuses")
-            })
-        });
+
+
+        try {
+            await fetch(`${API}/tasks/${editFormBody.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: formData.get("task_name"),
+                    person: formData.get("persons"),
+                    priority: formData.get("priorities"),
+                    date: formData.get("task_deadline"),
+                    status: formData.get("statuses")
+                })
+            });
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            editFormBody.prepend(err_msg)
+        }
 
     })
 
@@ -223,12 +243,18 @@ if (tableBody != null) {
     deletebtn.addEventListener("click", async (event) => {
         event.preventDefault();
 
-        await fetch(`http://localhost:7777/tasks/${editFormBody.id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+        try {
+            await fetch(`${API}/tasks/${editFormBody.id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            editFormBody.prepend(err_msg)
+        }
 
     })
 }

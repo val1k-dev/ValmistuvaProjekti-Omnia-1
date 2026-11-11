@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+    <title>Help - Task Manager</title>
+  </head>
+  <body>
+    <header>
+      <div class="search">
+        <img src="./assets/img/search.svg" class="ui-icon" alt="search_icon" />
+        <input type="text" placeholder="Search tasks" />
+      </div>
+
+      <div class="profile">
+        <div class="notification">
+          <img
+            src="./assets/img/notification.svg"
+            class="ui-icon"
+            alt="notify_icon"
+          />
+        </div>
+        <button class="theme-toggle" id="theme-toggle" type="button">
+          <img id="theme-icon" src="./assets/img/moon.svg" alt="theme icon" />
+        </button>
+        <img src="./assets/img/avatar.svg" alt="avatar_icon" />
+        <div class="info">
+          <h1>Kira Biloborodova</h1>
+          <p>Team leader</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="sidebar">
+      <img src="./assets/img/logo.png" alt="logo_icon" />
+
+      <nav>
+        <a href="index.html"
+          ><img
+            src="./assets/img/dashboard.svg"
+            class="ui-icon"
+            alt="icon"
+          />Dashboard</a
+        >
+        <a href="tasks.html"
+          ><img
+            src="./assets/img/tasks.svg"
+            class="ui-icon"
+            alt="icon"
+          />Tasks</a
+        >
+        <a href="team.html"
+          ><img src="./assets/img/team.svg" class="ui-icon" alt="icon" />Team</a
+        >
+        <a href="help.html"
+          ><img src="./assets/img/help.svg" class="ui-icon" alt="icon" />Help</a
+        >
+      </nav>
+
+      <footer>
+        <p>TaskManager<br />Bohdan and Kira</p>
+      </footer>
+    </div>
+
+    <main>
+      <div class="heading">
+        <div>
+          <h1>Help</h1>
+          <p>Documentation for the website</p>
+        </div>
+      </div>
+      <div class="content">
+        <details>
+          <summary>How to create a task?</summary>
+          <p>
+            Click the New Task button, enter the task details and press Add
+            task.
+          </p>
+        </details>
+        <details>
+          <summary>How to create a new member?</summary>
+          <p>
+            Click the New Member button, enter the member details and press Add
+            member.
+          </p>
+        </details>
+        <details>
+          <summary>How to edit member/task?</summary>
+          <p>Click Edit button, enter the new details and press Edit.</p>
+        </details>
+        <details>
+          <summary>How to reset all?</summary>
+          <p>Click reset all button, and press delete.</p>
+        </details>
+        <details>
+          <summary>Why search is not working?</summary>
+          <p>It will be implemented in React version of our app.</p>
+        </details>
+           <details>
+          <summary>Why notifications and profile info in header is not functional?</summary>
+          <p>
+            They will be implemented in React version of our app.
+          </p>
+        </details>
+      </div>
+    </main>
+  </body>
+
+  <script src="./assets/js/theme.js"></script>
+</html>

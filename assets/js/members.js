@@ -1,5 +1,5 @@
 
-import { getMembers, getMember } from "./api.js";
+import { getMembers, getMember, API } from "./api.js";
 
 const tableBody = document.querySelector("#members-table");
 const tableBodyMain = document.querySelector("#table-members-main");
@@ -107,7 +107,9 @@ if (tableBody != null) {
             memberRole.value = memberInfo.role
 
         } catch (error) {
-            console.error("Error in member", error)
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            edit_popover.prepend(err_msg)
         }
 
     });
@@ -116,16 +118,22 @@ if (tableBody != null) {
         event.preventDefault();
 
         const formData = new FormData(editFormBody);
-        await fetch(`http://localhost:7777/members/${editFormBody.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: formData.get("member_name"),
-                role: formData.get("roles"),
-            })
-        });
+        try {
+            await fetch(`${API}/members/${editFormBody.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: formData.get("member_name"),
+                    role: formData.get("roles"),
+                })
+            });
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            editFormBody.prepend(err_msg)
+        }
 
     })
 
@@ -133,12 +141,19 @@ if (tableBody != null) {
     deletebtn.addEventListener("click", async (event) => {
         event.preventDefault();
 
-        await fetch(`http://localhost:7777/members/${editFormBody.id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+
+        try {
+            await fetch(`${API}/members/${editFormBody.id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            editFormBody.prepend(err_msg)
+        }
 
     })
 }
@@ -148,17 +163,22 @@ if (formBody != null) {
         event.preventDefault();
 
         const formData = new FormData(formBody);
-        await fetch("http://localhost:7777/members", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: formData.get("member_name"),
-                role: formData.get("roles")
-            })
-        });
-
+        try {
+            await fetch(`${API}/members`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: formData.get("member_name"),
+                    role: formData.get("roles")
+                })
+            });
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            formBody.prepend(err_msg)
+        }
     })
 
 }

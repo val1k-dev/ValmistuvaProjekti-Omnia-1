@@ -1,4 +1,4 @@
-const API = "http://localhost:7777";
+export const API = "http://localhost:7777";
 
 
 const resetBody = document.getElementById('reset')
@@ -7,27 +7,35 @@ const resetCancel = document.getElementById('reset_cancel')
 
 if (resetBody != null) {
     resetBtn.addEventListener("click", async () => {
-        const tasksresponse = await fetch("http://localhost:7777/tasks");
-        const tasks = await tasksresponse.json();
+        try {
+            const tasksresponse = await fetch(`${API}/tasks`);
+            const tasks = await tasksresponse.json();
 
-        const membersresponse = await fetch("http://localhost:7777/members");
-        const members = await membersresponse.json();
+            const membersresponse = await fetch(`${API}/members`);
+            const members = await membersresponse.json();
 
-        await Promise.all(
-            tasks.map(task =>
-                fetch(`http://localhost:7777/tasks/${task.id}`, {
-                    method: "DELETE"
-                })
+            await Promise.all(
+                tasks.map(task =>
+                    fetch(`${API}/tasks/${task.id}`, {
+                        method: "DELETE"
+                    })
+                )
+            );
+
+            await Promise.all(
+                members.map(member =>
+                    fetch(`${API}/members/${member.id}`, {
+                        method: "DELETE"
+                    })
+                )
             )
-        );
+        } catch (error) {
+            const err_msg = document.createElement("div")
+            err_msg.textContent = "Server error. Contact Administration"
+            resetBody.prepend(err_msg)
+        }
 
-        await Promise.all(
-            members.map(member =>
-                fetch(`http://localhost:7777/members/${member.id}`, {
-                    method: "DELETE"
-                })
-            )
-        )
+
     })
 
     resetCancel.addEventListener("click", () => {
