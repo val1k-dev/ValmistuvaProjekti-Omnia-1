@@ -1,3 +1,4 @@
+/* COLOR SCHEME */
 :root {
   color-scheme: light dark;
   --bg: light-dark(#f8fafc, #111827);
@@ -23,6 +24,8 @@
   filter: brightness(0) invert(1);
 }
 
+/* COLOR SCHEME */
+
 * {
   box-sizing: border-box;
 }
@@ -36,6 +39,56 @@ body {
   user-select: none;
 }
 
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input:user-invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+p {
+  color: var(--text-muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* POPOVER */
 [popover] {
   position: fixed;
   inset: 0;
@@ -110,7 +163,9 @@ body {
 [popover] button:hover {
   filter: brightness(1.15);
 }
+/* POPOVER */
 
+/* HELP PAGE */
 .content {
   display: flex;
   flex-direction: column;
@@ -175,7 +230,9 @@ body {
   font-size: 14px;
   line-height: 1.7;
 }
+/* HELP PAGE */
 
+/* HEADER */
 header .theme-toggle {
   display: flex;
   align-items: center;
@@ -196,44 +253,6 @@ header .theme-toggle #theme-icon {
 
 header .theme-toggle:hover {
   background: var(--border);
-}
-
-img {
-  max-width: 100%;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-input:user-invalid {
-  border: 1px solid red;
-}
-
-input:valid {
-  border: 1px solid green;
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-top: 0;
-}
-
-h1 {
-  font-size: 20px;
-}
-
-h2 {
-  font-size: 22px;
-}
-
-p {
-  color: var(--text-muted);
 }
 
 header {
@@ -317,7 +336,9 @@ header .profile .info h1,
 header .profile .info p {
   margin: 0;
 }
+/* HEADER */
 
+/* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
@@ -367,18 +388,9 @@ nav a img {
   margin-top: auto;
   text-align: center;
 }
+/* SIDEBAR */
 
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  color: var(--text);
-}
-
+/* MAIN */
 main {
   width: calc(100% - 250px);
   margin: 0 0 0 250px;
@@ -411,7 +423,9 @@ main .heading div > button {
 main .heading div > button:hover {
   background: var(--bg);
 }
+/* MAIN */
 
+/* STATISTICS */
 .statistics-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
@@ -438,7 +452,9 @@ main .heading div > button:hover {
   font-size: 26px;
   font-weight: 700;
 }
+/* STATISTICS */
 
+/* TABLE */
 .tasks-table,
 .members-table {
   width: 100%;
@@ -552,7 +568,9 @@ tbody th img {
   background: #fee2e2;
   color: #991b1b;
 }
+/* TABLE */
 
+/* RESPONSIVE */
 @media (max-width: 1000px) {
   .sidebar {
     width: 220px;
@@ -617,9 +635,7 @@ tbody th img {
   }
 
   header .search {
-    flex: 1 1 100%;
-    width: 100%;
-    min-width: 0;
+    display: none;
   }
 
   header .profile {
@@ -749,3 +765,4 @@ tbody th img {
     padding: 16px 10px;
   }
 }
+/* RESPONSIVE */
