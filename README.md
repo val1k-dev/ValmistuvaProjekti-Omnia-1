@@ -1,4 +1,6 @@
 # ValmistuvaProjekti-Omnia-1
+![Logo](/assets/img/logo.png)
+
 
 Project install guide
 
